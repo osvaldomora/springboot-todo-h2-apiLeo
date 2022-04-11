@@ -3,31 +3,34 @@
 
 ## VS Code COnfiguration
 - [How to set JAVA environment variable in VS Code](https://stackoverflow.com/questions/59687712/how-to-set-java-environment-variable-in-vs-code)
-
-
--[Setting Environment variables for Maven in VSCODE](https://stackoverflow.com/questions/66126013/using-alternative-maven-and-java-version-in-vscode-integrated-terminal)
+- [Setting Environment variables for Maven in VSCODE](https://stackoverflow.com/questions/66126013/using-alternative-maven-and-java-version-in-vscode-integrated-terminal)
 
 
 ## Records
 
 - [Java 14 Record Keyword](https://www.baeldung.com/java-record-keyword)
 
-
 ## H2
 
 - [Spring Boot With H2 Database](https://www.baeldung.com/spring-boot-h2-database)
-
 
 ## Lombox
 
 - [Java Lombok Tutorial [NEW]](https://www.youtube.com/watch?v=z7bsNF2Dtf0)
 
-
 ## Swagger
 
 - [Documenting a Spring REST API Using OpenAPI 3.0](https://www.baeldung.com/spring-rest-openapi-documentation)
-
 - [How to Turn Off Swagger-ui in Production](https://www.baeldung.com/swagger-ui-turn-off-in-production)
+
+
+## JSR 380
+
+- [JSR 303: Bean Validation](https://beanvalidation.org/1.0/spec/)
+- [Java Bean Validation Basics](https://www.baeldung.com/javax-validation)
+- [Difference Between @NotNull, @NotEmpty, and @NotBlank Constraints in Bean Validation](https://www.baeldung.com/java-bean-validation-not-null-empty-blank)
+- [Bean Validation Made Simple With JSR 303](https://dzone.com/articles/bean-validation-made-simple)
+
 
 
 ## Profiles
