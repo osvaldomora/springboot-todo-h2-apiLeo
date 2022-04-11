@@ -27,8 +27,9 @@ public class UserService {
     }
 
     public User createNewUser( UserRequest request ){
-        User user = User.builder()
-                .userName(  request.userName() )
+        User user = 
+                User.builder()
+                .userName( request.userName() )
                 .build();
 
         user.setPassword( passwordEncoder.encode( request.password() ) );
