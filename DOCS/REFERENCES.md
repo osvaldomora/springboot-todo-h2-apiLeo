@@ -32,7 +32,17 @@
 - [Bean Validation Made Simple With JSR 303](https://dzone.com/articles/bean-validation-made-simple)
 
 
+## Validation
+
+- [Spring Boot | REST API Request Validation & Exception Handling Realtime Example | JavaTechie](https://www.youtube.com/watch?v=gPnd-hzM_6A)
+
+- [Enforcing Java Record Invariants With Bean Validation](https://www.morling.dev/blog/enforcing-java-record-invariants-with-bean-validation/)
+
 
 ## Profiles
 
 - [Spring Profiles](https://www.baeldung.com/spring-profiles)
+
+## Java 8 
+
+- [How to Convert List to Map in Java](https://www.baeldung.com/java-list-to-map)

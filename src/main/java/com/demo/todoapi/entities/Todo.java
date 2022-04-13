@@ -5,7 +5,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+//import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -34,11 +34,11 @@ public class Todo {
     private LocalDateTime updatedAt;
 
     @Column(name = "title")
-    @NotBlank( message = "Title must not be null nor empty/blank value")
+    //@NotBlank( message = "Title must not be null nor empty/blank value")
     private String title;
 
     @Column(name = "description")
-    @NotBlank( message = "Description must not be null nor empty/blank value")
+    //@NotBlank( message = "Description must not be null nor empty/blank value")
     private String description;
 
     @Column(name = "is_completed")

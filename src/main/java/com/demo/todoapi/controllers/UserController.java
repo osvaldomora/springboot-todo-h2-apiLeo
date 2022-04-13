@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -27,7 +29,7 @@ public class UserController{
 
 
     @GetMapping("/{userId}")
-    public ResponseEntity<User> fetchUser(@PathVariable("userId") Long userId) {
+    public ResponseEntity<User> fetchUser(@PathVariable Long userId) {
         return userService.findUserById(userId)
                 .map(user -> ResponseEntity.ok().body(user))
                 .orElse(ResponseEntity.notFound().build());
@@ -35,7 +37,7 @@ public class UserController{
 
 
     @PostMapping("/signup")
-    public ResponseEntity<User> signup(@RequestBody UserRequest user) {
+    public ResponseEntity<User> signup(@RequestBody @Valid UserRequest user) {
         if (userService.findUser(user.userName())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
@@ -43,7 +45,7 @@ public class UserController{
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Long> login(@RequestBody UserRequest user) {
+    public ResponseEntity<Long> login(@RequestBody @Valid UserRequest user) {
         return userService.findByCredentials(user)
                 .map(existingItem -> ResponseEntity.ok().body(existingItem))
                 .orElse(ResponseEntity.notFound().build());

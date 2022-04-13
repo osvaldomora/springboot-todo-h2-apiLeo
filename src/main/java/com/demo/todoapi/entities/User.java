@@ -6,8 +6,8 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotEmpty;
+//import javax.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.Set;
 
@@ -27,12 +27,12 @@ public class User {
     private Long userId;
 
     @Column(name ="user_name")
-    @NotBlank( message = "Name must not be null nor empty/blank value")
+    //@NotBlank( message = "Name must not be null nor empty/blank value")
     private String userName;
 
     @Column(name ="password")
     @JsonIgnore
-    @NotBlank( message = "Password must not be null nor empty/blank value")
+    //@NotBlank( message = "Password must not be null nor empty/blank value")
     private String password;
 
 
