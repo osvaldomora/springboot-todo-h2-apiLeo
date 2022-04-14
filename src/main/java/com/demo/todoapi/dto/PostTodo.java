@@ -1,11 +1,12 @@
 package com.demo.todoapi.dto;
 
-import java.util.Objects;
+import javax.validation.constraints.NotBlank;
 
-public record PostTodo(String title, String description ) {
+public record PostTodo(
+        @NotBlank( message = "Title must not be null nor empty/blank value")
+        String title,
+        @NotBlank( message = "Description must not be null nor empty/blank value")
+        String description ) {
 
-    public  PostTodo {
-        Objects.requireNonNull( title);
-        Objects.requireNonNull( description );
-    }
+
 }

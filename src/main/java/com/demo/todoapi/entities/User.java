@@ -2,8 +2,10 @@ package com.demo.todoapi.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -11,21 +13,20 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode
+@AllArgsConstructor
 @RequiredArgsConstructor
 @Builder
-@AllArgsConstructor
-@EqualsAndHashCode
 public class User {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long userId;
 
     @Column(name ="user_name")
     private String userName;
 
-    @Column(name ="password")
     @JsonIgnore
     private String password;
 

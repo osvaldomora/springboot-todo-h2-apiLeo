@@ -1,14 +1,12 @@
 package com.demo.todoapi.dto;
 
+import javax.validation.constraints.NotBlank;
 
-import java.util.Objects;
-
-public record UserRequest(String userName, String password) {
-
-    public UserRequest {
-        Objects.requireNonNull( userName );
-        Objects.requireNonNull( password );
-    }
-
+public record UserRequest (
+        @NotBlank( message = "Username must not be null nor empty/blank value")
+        String userName,
+        @NotBlank( message = "Password must not be null nor empty/blank value")
+        String password
+){
 
 }

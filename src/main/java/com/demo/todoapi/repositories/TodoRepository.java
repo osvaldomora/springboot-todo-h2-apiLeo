@@ -18,6 +18,6 @@ public interface TodoRepository extends JpaRepository<Todo,Long> {
 
     Optional<Todo> findByCreatedByAndTodoId(long userId, long todoId );
 
-    Long deleteByCreatedByAndTodoId( long createdBy,  long todoId);
+    long deleteByCreatedByAndTodoId( long createdBy,  long todoId);
 
 }

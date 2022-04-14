@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -27,21 +28,21 @@ public class TodoController{
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<List<Todo>> fetchUserTodos( @PathVariable("userId") long userId ){
+    public ResponseEntity<List<Todo>> fetchUserTodos( @PathVariable final long userId ){
         return ResponseEntity.ok().body( todoService.getUserTodos( userId ) );
     }
 
     @GetMapping("/{userId}/status/{status}")
     public ResponseEntity<List<Todo>> fetchTodosByStatus(
-            @PathVariable("userId") long userId,
-            @PathVariable("status") boolean status ){
+            @PathVariable final long userId,
+            @PathVariable final boolean status ){
         return  ResponseEntity.ok().body( todoService.getUserTodosByStatus(userId, status) );
     }
 
     @PostMapping("/{userId}")
     public ResponseEntity<Todo> postTodo(
-            @PathVariable("userId") int userId,
-            @RequestBody PostTodo todo ){
+            @PathVariable final long userId,
+            @RequestBody @Valid final PostTodo todo ){
 
         log.debug( "new todo in controller is {}", todo);        
 
@@ -50,8 +51,8 @@ public class TodoController{
 
     @GetMapping("/{userId}/{todoId}")
     public ResponseEntity<Todo> getTodoById(
-            @PathVariable("userId") long userId,
-            @PathVariable("todoId") long todoId ) {
+            @PathVariable final long userId,
+            @PathVariable final long todoId ) {
 
         return todoService.getUserTodoById( userId, todoId)
                 .map( todo -> ResponseEntity.ok().body(todo) )
@@ -61,8 +62,8 @@ public class TodoController{
 
     @DeleteMapping("/{userId}/{todoId}")
     public ResponseEntity<Void> deleteTodo(
-        @PathVariable("userId") long userId,
-        @PathVariable("todoId") long todoId ) {
+        @PathVariable final long userId,
+        @PathVariable final long todoId ) {
 
         if( todoService.deleteTodo(userId,todoId)){
             return ResponseEntity.noContent().build();
@@ -72,9 +73,9 @@ public class TodoController{
 
     @PutMapping("/{userId}/{todoId}")
     public ResponseEntity<Todo> putTodo(
-            @PathVariable("userId") long userId,
-            @PathVariable("todoId") long todoId,
-            @RequestBody PutTodo putTodo ){
+            @PathVariable final long userId,
+            @PathVariable final long todoId,
+            @RequestBody @Valid final PutTodo putTodo ){
 
         return  todoService.updateTodo(userId, todoId, putTodo)
                 .map( updatedTodo -> ResponseEntity.ok().body(updatedTodo) )

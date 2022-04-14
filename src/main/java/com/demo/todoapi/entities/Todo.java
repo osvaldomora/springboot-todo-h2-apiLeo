@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode
 public class Todo {
     @Id
     @Column(name = "id")
@@ -30,10 +30,8 @@ public class Todo {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @Column(name = "title")
     private String title;
 
-    @Column(name = "description")
     private String description;
 
     @Column(name = "is_completed")
@@ -45,6 +43,5 @@ public class Todo {
     @ToString.Exclude
     @JsonIgnore
     private User user;
-
 
 }

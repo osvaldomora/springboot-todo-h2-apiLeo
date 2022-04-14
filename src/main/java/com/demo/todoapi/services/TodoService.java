@@ -53,12 +53,10 @@ public class TodoService {
     @Transactional
     public boolean deleteTodo( long userId, long todoId){
         try{
-            Long numberOfDeletedRecords = todoRepository.deleteByCreatedByAndTodoId(userId, todoId);
-            log.debug("The number of deleted records are",  numberOfDeletedRecords);
-
-            return numberOfDeletedRecords == 1 ? true: false;
+            long numberOfDeletedRecords = todoRepository.deleteByCreatedByAndTodoId(userId, todoId);
+            log.debug("The number of deleted records are {}",  numberOfDeletedRecords );
+            return numberOfDeletedRecords == 1;
         }catch ( EmptyResultDataAccessException ignored){
-            System.out.println( ignored );
             return false;
         }
     }
@@ -66,33 +64,13 @@ public class TodoService {
 
 
     public Optional<Todo> updateTodo(long userId, long todoId, PutTodo todo ){
-        return getUserTodoById(  userId, todoId )
+        return getUserTodoById( userId, todoId )
                 .map( wantedTodo ->{
-                    boolean executeUpdate = false;
-                    String currentValue = "";
-
-                    currentValue = todo.title();
-                    if( !currentValue.equals(  wantedTodo.getTitle()  ) ){
-                        wantedTodo.setTitle( currentValue );
-                        executeUpdate = true;
-                    }
-
-                    currentValue = todo.description();
-                    if( !currentValue.equals( wantedTodo.getDescription() ) ){
-                        wantedTodo.setDescription( currentValue );
-                        executeUpdate = true;
-                    }
-
-                    if(  todo.completed() != wantedTodo.getCompleted()  ){
-                        wantedTodo.setCompleted( todo.completed() );
-                        executeUpdate = true;
-                    }
-
-                    if( executeUpdate ){
-                        wantedTodo.setUpdatedAt( LocalDateTime.now() );
-                        return todoRepository.save(  wantedTodo );
-                    }
-                    return wantedTodo;
+                    wantedTodo.setTitle( todo.title() );
+                    wantedTodo.setDescription( todo.description() );
+                    wantedTodo.setCompleted( todo.completed() );
+                    wantedTodo.setUpdatedAt( LocalDateTime.now() );
+                    return todoRepository.save(  wantedTodo );
                 });
     }
 
