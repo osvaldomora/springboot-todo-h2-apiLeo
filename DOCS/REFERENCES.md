@@ -23,6 +23,11 @@
 - [Documenting a Spring REST API Using OpenAPI 3.0](https://www.baeldung.com/spring-rest-openapi-documentation)
 - [How to Turn Off Swagger-ui in Production](https://www.baeldung.com/swagger-ui-turn-off-in-production)
 
+## Cors
+
+- [Enabling Cross Origin Requests for a RESTful Web Service](https://spring.io/guides/gs/rest-service-cors/)
+- [SPRING BOOT: COMO SOLUCIONAR Y CONFIGURAR PROBLEMAS DE CORS](https://www.youtube.com/watch?v=jJTfuiyEqb8)
+
 
 ## JSR 380
 

@@ -24,4 +24,6 @@ public class ApplicationExceptionHandler {
                 .collect( Collectors.toMap(  FieldError::getField, FieldError::getDefaultMessage ) );
     }
 
+
+
 }

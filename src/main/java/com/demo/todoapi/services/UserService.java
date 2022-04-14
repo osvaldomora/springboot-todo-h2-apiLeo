@@ -13,26 +13,22 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class UserService {
-
     private final UserRepository userRepository;
-
     private final PasswordEncoder passwordEncoder;
 
     public List<User> findAllUsers(){
         return userRepository.findAll();
     }
 
-    public boolean findUser(String userName){
+    public boolean findUser(final String userName){
         return userRepository.findByUserName( userName ).isPresent();
     }
 
     public User createNewUser( UserRequest request ){
-        User user = 
-                User.builder()
-                .userName( request.userName() )
-                .build();
-
-        user.setPassword( passwordEncoder.encode( request.password() ) );
+        User user = User.builder()
+                        .userName( request.userName() )
+                        .password( passwordEncoder.encode( request.password() ) )
+                        .build();
         return userRepository.save(user);
     }
 
@@ -47,8 +43,8 @@ public class UserService {
                 });
     }
 
-    public Optional<User> findUserById(Long userId){
-        return userRepository.findById(userId );
+    public Optional<User> findUserById( final long userId){
+        return userRepository.findById(userId);
     }
 
 

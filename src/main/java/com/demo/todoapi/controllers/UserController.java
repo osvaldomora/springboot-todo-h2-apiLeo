@@ -29,7 +29,7 @@ public class UserController{
 
 
     @GetMapping("/{userId}")
-    public ResponseEntity<User> fetchUser(@PathVariable Long userId) {
+    public ResponseEntity<User> fetchUser(@PathVariable final long userId) {
         return userService.findUserById(userId)
                 .map(user -> ResponseEntity.ok().body(user))
                 .orElse(ResponseEntity.notFound().build());
@@ -37,7 +37,7 @@ public class UserController{
 
 
     @PostMapping("/signup")
-    public ResponseEntity<User> signup(@RequestBody @Valid UserRequest user) {
+    public ResponseEntity<User> signup(@RequestBody @Valid final UserRequest user) {
         if (userService.findUser(user.userName())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
@@ -45,7 +45,7 @@ public class UserController{
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Long> login(@RequestBody @Valid UserRequest user) {
+    public ResponseEntity<Long> login(@RequestBody @Valid final UserRequest user) {
         return userService.findByCredentials(user)
                 .map(existingItem -> ResponseEntity.ok().body(existingItem))
                 .orElse(ResponseEntity.notFound().build());
