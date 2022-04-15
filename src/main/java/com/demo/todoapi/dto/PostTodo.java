@@ -7,6 +7,4 @@ public record PostTodo(
         String title,
         @NotBlank( message = "Description must not be null nor empty/blank value")
         String description ) {
-
-
 }
