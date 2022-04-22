@@ -14,7 +14,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
-        format_sql: true
+        '[format_sql]': true
     show-sql: true
   output:
     ansi:
@@ -23,6 +23,7 @@ spring:
 logging:
   level:
     root: INFO
-    org.springfamework.web: ERROR
+    org.springframework.web: ERROR
     org.hibernate: ERROR
-    com.demo.stepapi: DEBUG
+    com.demo.todoapi: DEBUG
+    

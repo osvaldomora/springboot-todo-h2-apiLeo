@@ -46,7 +46,9 @@ public class TodoController{
 
         log.debug( "new todo in controller is {}", todo);        
 
-        return ResponseEntity.status( HttpStatus.CREATED ).body( todoService.saveTodo(userId,todo) );
+        return ResponseEntity
+            .status( HttpStatus.CREATED )
+            .body( todoService.saveTodo(userId,todo) );
     }
 
     @GetMapping("/{userId}/{todoId}")
