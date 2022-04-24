@@ -13,7 +13,6 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Builder
@@ -36,4 +35,16 @@ public class User {
     @JsonIgnore
     private Set<Todo> todos;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        User user = (User) o;
+        return userId != null && Objects.equals(userId, user.userId);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

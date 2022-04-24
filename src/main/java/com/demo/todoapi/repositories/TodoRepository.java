@@ -8,7 +8,8 @@ import java.util.Optional;
 
 
 /**
- * http://localhost:8080/todoapp/api/h2-console
+ * 
+ * http://localhost:8080/api/todoapp/h2-console/login.jsp
  */
 public interface TodoRepository extends JpaRepository<Todo,Long> {
 
