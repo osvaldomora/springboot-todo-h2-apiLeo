@@ -90,4 +90,6 @@ Some additional documents where added to get more information, details of some t
 
 - [TEST API](DOCS/TEST_API.md) : Details of how operate you api with Swagger and curl
 
+- [TEST Database](DOCS/TEST_DATABASE.md) : Details of how operate you database
+
 

@@ -25,5 +25,5 @@ logging:
     root: INFO
     org.springframework.web: ERROR
     org.hibernate: ERROR
-    com.demo.todoapi: DEBUG
+    com.demo.todoapi.*: DEBUG
     
